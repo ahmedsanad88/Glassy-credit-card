@@ -1,0 +1,234 @@
+:root {
+  --bgColor: #000;
+  --cardBg: rgba(255, 255, 255, 0.2);
+  --mainTextColor: #fff;
+  --subTextColor: #cfcfcf;
+  --padding-lg: 2rem;
+  --padding-sm: 1rem;
+  --rotateCircleX: 0px;
+  --rotateCircleY: 0px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bgColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100svh;
+}
+
+.card__container {
+  position: relative;
+}
+
+.card__container::before,
+.card__container::after {
+  content: "";
+  position: absolute;
+  border-radius: 100%;
+  z-index: -1;
+  background-position: 0% 0%;
+  animation: bgMover 5s infinite alternate;
+  transform-style: preserve-3d;
+}
+
+.card__container::before {
+  width: clamp(5rem, 150px, 15rem);
+  height: clamp(5rem, 150px, 15rem);
+  right: -15%;
+  top: -15%;
+  background: #f12711;
+  background: -webkit-linear-gradient(to top, #f5af19, #f12711);
+  background: linear-gradient(to top, #f5af19, #f12711);
+  background-size: 500px 500px;
+  transform: perspective(1000px) translateY(var(--rotateCircleY))
+    translateX(var(--rotateCircleX));
+}
+
+.card__container::after {
+  width: clamp(15rem, 200px, 25rem);
+  height: clamp(15rem, 200px, 25rem);
+  left: -20%;
+  bottom: -20%;
+  background: #000428;
+  background: -webkit-linear-gradient(to top, #004e92, #000428);
+  background: linear-gradient(to top, #004e92, #000428);
+  background-size: 1000px 1000px;
+  transform: perspective(1000px)
+    translate3d(
+      calc(var(--rotateCircleX) + var(--rotateCircleY)),
+      0,
+      calc(var(--rotateCircleX) - var(--rotateCircleY))
+    );
+}
+
+@keyframes bgMover {
+  50% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+.card__content,
+.form__content {
+  padding: var(--padding-lg);
+  background-color: var(--cardBg);
+  border-radius: 0.7rem;
+  width: clamp(20rem, 50vw, 35rem);
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.card__content {
+  transform-style: preserve-3d;
+  transform: perspective(1000px) rotateY(var(--rotateY)) rotateX(var(--rotateX));
+  cursor: pointer;
+}
+
+.card__content > small {
+  color: var(--mainTextColor);
+}
+
+.card__content__paypass {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--mainTextColor);
+}
+
+.card__content__chip {
+  flex: 1;
+  margin-block: 1rem;
+}
+
+.card__content__chip img {
+  width: 5rem;
+}
+
+@media screen and (max-width: 676px) {
+  .card__content__chip img {
+    width: 3rem;
+  }
+}
+
+.card__content__cardNumber p {
+  font-size: 2rem;
+  text-align: center;
+  color: var(--subTextColor);
+  margin-block: 1rem;
+}
+
+@media screen and (max-width: 676px) {
+  .card__content__cardNumber p {
+    font-size: 1.2rem;
+  }
+}
+
+.card__content__user {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2rem;
+}
+
+.card__content__user__exp {
+  flex: 1;
+  text-align: right;
+}
+
+.card__content__user__exp p {
+  font-size: 0.8rem;
+  color: var(--subTextColor);
+}
+
+.exp__date {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--mainTextColor);
+}
+
+.card__content__user__exp h3 {
+  text-align: center;
+  color: var(--mainTextColor);
+  margin-top: 0.5rem;
+}
+
+@media screen and (max-width: 676px) {
+  .card__content__user img {
+    width: 3rem;
+  }
+}
+
+/* Form */
+
+.form__content {
+  margin-top: 1rem;
+  transition: transform 0.4s ease-in-out, opacity 0.3s ease-in-out;
+  transform: translateY(-20rem) scale(0);
+  opacity: 0;
+}
+
+.show__form {
+  transform: translateY(0rem) scale(1);
+  opacity: 1;
+}
+
+.form__content form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form__content form button {
+  height: 2.5rem;
+  margin-top: 1.5rem;
+  border-radius: 0.3rem;
+  outline: transparent;
+  border: 1px solid var(--bgColor);
+  background-color: transparent;
+  color: var(--subTextColor);
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+.form__content form button:hover,
+.form__content form button:focus,
+.form__content form button:active {
+  background: #f12711;
+  color: var(--bgColor);
+}
+
+.input__style {
+  display: flex;
+  flex-direction: column;
+  color: var(--subTextColor);
+}
+
+.input__style input {
+  height: 2.5rem;
+  background-color: #2e2e2e;
+  outline: transparent;
+  border: 1px solid transparent;
+  color: var(--mainTextColor);
+  padding-inline: 0.4rem;
+  border-radius: 0.3rem;
+}
+.input__style input:active,
+.input__style input:focus {
+  border: 1px solid lightskyblue;
+}
