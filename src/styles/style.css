@@ -1,12 +1,13 @@
+/* General setup */
 :root {
   --bgColor: #000;
   --cardBg: rgba(255, 255, 255, 0.2);
   --mainTextColor: #fff;
   --subTextColor: #cfcfcf;
   --padding-lg: 2rem;
-  --padding-sm: 1rem;
   --rotateCircleX: 0px;
   --rotateCircleY: 0px;
+  --rotateBg: 0deg;
 }
 
 *,
@@ -23,11 +24,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100svh;
+  min-height: 100dvh;
 }
+
+/* Card container including the moving balls */
 
 .card__container {
   position: relative;
+  margin-top: 5rem;
 }
 
 .card__container::before,
@@ -39,6 +43,15 @@ body {
   background-position: 0% 0%;
   animation: bgMover 5s infinite alternate;
   transform-style: preserve-3d;
+}
+
+@keyframes bgMover {
+  50% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
 }
 
 .card__container::before {
@@ -71,14 +84,7 @@ body {
     );
 }
 
-@keyframes bgMover {
-  50% {
-    background-position: 50% 50%;
-  }
-  100% {
-    background-position: 100% 100%;
-  }
-}
+/* Card content and the form */
 
 .card__content,
 .form__content {
@@ -87,15 +93,33 @@ body {
   border-radius: 0.7rem;
   width: clamp(20rem, 50vw, 35rem);
   z-index: 10;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(15px);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .card__content {
   transform-style: preserve-3d;
   transform: perspective(1000px) rotateY(var(--rotateY)) rotateX(var(--rotateX));
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.card__content::before {
+  content: "";
+  position: absolute;
+  inset: -5rem;
+  background: linear-gradient(
+    var(--rotateBg),
+    rgba(239, 71, 110, 0.1) 20%,
+    rgba(255, 209, 102, 0.1) 40%,
+    rgba(6, 214, 158, 0.1) 60%,
+    rgba(255, 209, 102, 0.1) 80%,
+    rgba(239, 71, 110, 0.1) 100%
+  );
+  border-radius: inherit;
+  z-index: -1;
 }
 
 .card__content > small {
@@ -197,9 +221,9 @@ body {
   margin-top: 1.5rem;
   border-radius: 0.3rem;
   outline: transparent;
-  border: 1px solid var(--bgColor);
+  border: none;
   background-color: transparent;
-  color: var(--subTextColor);
+  color: var(--mainTextColor);
   cursor: pointer;
   font-weight: 700;
   font-size: 1.2rem;
@@ -209,8 +233,7 @@ body {
 .form__content form button:hover,
 .form__content form button:focus,
 .form__content form button:active {
-  background: #f12711;
-  color: var(--bgColor);
+  background: #5603d2;
 }
 
 .input__style {
