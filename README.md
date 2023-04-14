@@ -6,6 +6,13 @@
 > > CSS
 > > Javascript
 
+<br />
+<br />
+
+
+<img width="1074" alt="credit-card" src="https://user-images.githubusercontent.com/57454543/231945995-6a697ae7-7679-447d-8866-88f5bb380771.png">
+
+
 ## Summary📚
 
 - The project delivered an animated glassy credit card on hover in addition to clicking the card will pop up a form that is used to submit data or for payment.
