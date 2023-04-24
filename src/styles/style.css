@@ -5,6 +5,7 @@
   --mainTextColor: #fff;
   --subTextColor: #cfcfcf;
   --padding-lg: 2rem;
+  --padding-sm: 1rem;
   --rotateCircleX: 0px;
   --rotateCircleY: 0px;
   --rotateBg: 0deg;
@@ -25,6 +26,12 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100dvh;
+}
+
+@media screen and (max-width: 676px) {
+  main {
+    padding-bottom: 5rem;
+  }
 }
 
 /* Card container including the moving balls */
@@ -55,8 +62,8 @@ body {
 }
 
 .card__container::before {
-  width: clamp(5rem, 150px, 15rem);
-  height: clamp(5rem, 150px, 15rem);
+  width: 9rem;
+  height: 9rem;
   right: -15%;
   top: -15%;
   background: #f12711;
@@ -68,8 +75,8 @@ body {
 }
 
 .card__container::after {
-  width: clamp(15rem, 200px, 25rem);
-  height: clamp(15rem, 200px, 25rem);
+  width: 12rem;
+  height: 12rem;
   left: -20%;
   bottom: -20%;
   background: #000428;
@@ -84,6 +91,21 @@ body {
     );
 }
 
+@media screen and (max-width: 676px) {
+  .card__container::before {
+    width: 5rem;
+    height: 5rem;
+    right: 5rem;
+    top: 5rem;
+  }
+  .card__container::after {
+    width: 8rem;
+    height: 8rem;
+    left: 4rem;
+    bottom: 4rem;
+  }
+}
+
 /* Card content and the form */
 
 .card__content,
@@ -96,6 +118,7 @@ body {
   backdrop-filter: blur(15px);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
   border: 2px solid rgba(255, 255, 255, 0.3);
+  margin-inline: auto;
 }
 
 .card__content {
@@ -143,6 +166,10 @@ body {
 }
 
 @media screen and (max-width: 676px) {
+  .card__content,
+  .form__content {
+    padding: var(--padding-sm);
+  }
   .card__content__chip img {
     width: 3rem;
   }

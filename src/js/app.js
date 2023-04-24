@@ -48,4 +48,5 @@ card.addEventListener("click", () => {
 // form submit
 document.getElementById("formData").addEventListener("submit", (e) => {
   e.preventDefault();
+  // Handle the form submission as you like
 });
