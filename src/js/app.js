@@ -27,9 +27,9 @@ function handleCardRotation(event, element) {
     ((x + y - (middleX + middleY)) / (middleX + middleY)) * 360;
 
   // Setting all the dynamics properties.
-  document.documentElement.style.setProperty("--rotateCircleX", offsetY + "px");
+  document.documentElement.style.setProperty("--movingCircleX", offsetY + "px");
   document.documentElement.style.setProperty(
-    "--rotateCircleY",
+    "--movingCircleY",
     -1 * offsetX + "px"
   );
   element.style.setProperty("--rotateX", -1 * offsetY + "deg");

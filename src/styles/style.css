@@ -6,10 +6,15 @@
   --subTextColor: #cfcfcf;
   --padding-lg: 2rem;
   --padding-sm: 1rem;
-  --rotateCircleX: 0px;
-  --rotateCircleY: 0px;
+  --movingCircleX: 0px;
+  --movingCircleY: 0px;
   --rotateBg: 0deg;
 }
+
+/* for a better naming convention, I updated the following
+    --rotateCircleX ---> --movingCircleX
+    --rotateCircleY ---> --movingCircleY
+*/
 
 *,
 *::before,
@@ -26,6 +31,12 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100dvh;
+}
+
+main h1 {
+  text-align: center;
+  margin-block: 1rem;
+  color: whitesmoke;
 }
 
 @media screen and (max-width: 676px) {
@@ -70,8 +81,8 @@ body {
   background: -webkit-linear-gradient(to top, #f5af19, #f12711);
   background: linear-gradient(to top, #f5af19, #f12711);
   background-size: 500px 500px;
-  transform: perspective(1000px) translateY(var(--rotateCircleY))
-    translateX(var(--rotateCircleX));
+  transform: perspective(1000px) translateY(var(--movingCircleY))
+    translateX(var(--movingCircleX));
 }
 
 .card__container::after {
@@ -85,9 +96,9 @@ body {
   background-size: 1000px 1000px;
   transform: perspective(1000px)
     translate3d(
-      calc(var(--rotateCircleX) + var(--rotateCircleY)),
+      calc(var(--movingCircleX) + var(--movingCircleY)),
       0,
-      calc(var(--rotateCircleX) - var(--rotateCircleY))
+      calc(var(--movingCircleX) - var(--movingCircleY))
     );
 }
 

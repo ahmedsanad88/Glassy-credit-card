@@ -1,63 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/styles/style.css" />
-    <script defer src="src/js/app.js"></script>
-    <title>Credit card</title>
-  </head>
-  <body>
-    <main>
-      <h1 style="text-align: center; margin-block: 1rem; color: whitesmoke">
-        Animated Glass Credit Card
-      </h1>
-      <section class="card__container">
-        <!-- card -->
-        <div class="card__content">
-          <div class="card__content__paypass">
-            <h2>Bank Name</h2>
-            <img src="src/assets/PayPass-icon.png" alt="PayPass" />
-          </div>
-          <div class="card__content__chip">
-            <img src="src/assets/chip.png" alt="chip" />
-          </div>
-          <div class="card__content__cardNumber">
-            <p>5375 4411 4540 0905</p>
-          </div>
-          <div class="card__content__user">
-            <div class="card__content__user__exp">
-              <p>Expire date <span class="exp__date">06/27</span></p>
-              <h3>Ahmed Sanad</h3>
-            </div>
-            <img src="src/assets/Mastercard.png" alt="Mastercard" />
-          </div>
-          <small>Click Me!</small>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="src/styles/style.css" />
+  <script defer src="src/js/app.js"></script>
+  <title>Credit card</title>
+</head>
+
+<body>
+  <main>
+    <h1>
+      Animated Glass Credit Card
+    </h1>
+    <section class="card__container">
+      <!-- card -->
+      <div class="card__content">
+        <div class="card__content__paypass">
+          <h2>Bank Name</h2>
+          <img src="src/assets/PayPass-icon.png" alt="PayPass" />
         </div>
-      </section>
-      <!-- form -->
-      <section class="form__content">
-        <form id="formData">
-          <div class="input__style">
-            <label for="name">Card Holder Name</label>
-            <input type="text" id="name" />
+        <div class="card__content__chip">
+          <img src="src/assets/chip.png" alt="chip" />
+        </div>
+        <div class="card__content__cardNumber">
+          <p>5375 4411 4540 0905</p>
+        </div>
+        <div class="card__content__user">
+          <div class="card__content__user__exp">
+            <p>Expire date <span class="exp__date">06/27</span></p>
+            <h3>Ahmed Sanad</h3>
           </div>
-          <div class="input__style">
-            <label for="cardNumber">Card Number</label>
-            <input type="text" id="cardNumber" />
-          </div>
-          <div class="input__style">
-            <label for="expDate">Expire Date</label>
-            <input type="date" id="expDate" />
-          </div>
-          <div class="input__style">
-            <label for="cvv">CVV</label>
-            <input type="password" id="cvv" />
-          </div>
-          <button type="submit">Pay</button>
-        </form>
-      </section>
-    </main>
-  </body>
+          <img src="src/assets/Mastercard.png" alt="Mastercard" />
+        </div>
+        <small>Click Me!</small>
+      </div>
+    </section>
+    <!-- form -->
+    <section class="form__content">
+      <form id="formData">
+        <div class="input__style">
+          <label for="name">Card Holder Name</label>
+          <input type="text" id="name" />
+        </div>
+        <div class="input__style">
+          <label for="cardNumber">Card Number</label>
+          <input type="text" id="cardNumber" />
+        </div>
+        <div class="input__style">
+          <label for="expDate">Expire Date</label>
+          <input type="date" id="expDate" />
+        </div>
+        <div class="input__style">
+          <label for="cvv">CVV</label>
+          <input type="password" id="cvv" />
+        </div>
+        <button type="submit">Pay</button>
+      </form>
+    </section>
+  </main>
+</body>
+
 </html>
